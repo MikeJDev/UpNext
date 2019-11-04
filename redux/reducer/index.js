@@ -1,5 +1,9 @@
 import {combineReducers} from 'redux'
 
+import {
+  ADD_TODO
+} from '../actionTypes/index'
+
 const initialState = {
   Todos: [],
   Completed: []
@@ -9,10 +13,12 @@ const initialState = {
 function rootReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_TODO:
-      return Object.assign({}, state, {
+      return {
         ...state,
         Todos: state.Todos.concat(action.payload)
-      });
+      }
+      default: 
+        return state
     }
   }
 

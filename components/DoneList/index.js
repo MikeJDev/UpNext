@@ -9,9 +9,22 @@ import {
 } from 'react-native';
 
 
-const DoneList = () => {
+const DoneList = ({
+  todo
+}) => {
+  console.log('todo:', todo)
+
+  // const todoItems = todo.map((x, y) => {
+  //   <Text key={y}>{x.title}</Text>
+  // })
       return (
-          <Text>Done Column</Text>
+        <View>
+          <Text>Done List</Text>
+          <Text>
+          {todo}
+          </Text>
+        </View>
+          // <Text>Done Column</Text>
       )
 }
 

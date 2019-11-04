@@ -8,7 +8,11 @@ import {
   StatusBar,
   TextInput
 } from 'react-native';
-
+import {connect} from 'react-redux'
+import {
+  addTodo,
+} from '../../redux/actions'
+import DoneList from '../DoneList/index'
 
 class Form extends Component {
   constructor(props) {
@@ -16,8 +20,13 @@ class Form extends Component {
     this.state = {text: ''}
   }
 
-  handleSubmit = text => {
-    this.setState({ text: text})
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { title } = this.state;
+    if (this.state.title !== "") {
+      this.props.addTodo({ title });
+    }
+    this.setState({ title: "" });
   }
 
   render () {
@@ -29,6 +38,8 @@ class Form extends Component {
             placeholder="Add Tasks"
             returnKeyType="done"
             returnKeyLabel="done"
+            onChangeText={(text) => this.setState({text})}
+            onSubmitEditing={this.handleSubmit}
           ></TextInput>
         </View>
       )
@@ -48,4 +59,14 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Form
+function mapDispatchToProps(dispatch) {
+  return {
+    addTodo: text => dispatch(addTodo(text)),
+  };
+}
+
+const connectedForm = connect(
+  null,
+  mapDispatchToProps
+)(Form)
+export default connectedForm
