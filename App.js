@@ -1,4 +1,7 @@
 import React from 'react';
+import {provider} from 'react-redux'
+import {createStore} from 'redux'
+import rootReducer from './redux/reducer/index'
 import {
   SafeAreaView,
   StyleSheet,
@@ -20,6 +23,8 @@ import DoneList from './components/DoneList/index'
 import Form from './components/Form/index'
 import TodoContainer from './components/TodoContainer/index'
 import TodoList from './components/TodoList/index'
+
+// const store = createStore(rootReducer)
 
 const App = () => {
   return (
