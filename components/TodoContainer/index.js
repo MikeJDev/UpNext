@@ -16,6 +16,7 @@ class TodoContainer extends Component {
       return (
         <View>
           <DoneList></DoneList>
+
           <TodoList></TodoList>
         </View>
       )
