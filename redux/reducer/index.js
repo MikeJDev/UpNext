@@ -1,5 +1,6 @@
 import {
-  ADD_TODO
+  ADD_TODO,
+  REMOVE_SPECIFIC_TODO
 } from '../actionTypes/index'
 
 const initialState = {
@@ -11,10 +12,20 @@ const initialState = {
 function rootReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_TODO:
-      return {
+      return Object.assign({}, state, {
         ...state,
         Todos: state.Todos.concat(action.payload)
-      }
+      })
+
+      case REMOVE_SPECIFIC_TODO:
+      let array = [...state.Todos]
+      array.splice(action.payload, 1)
+
+      return Object.assign({}, state, {
+        ...state,
+        Todos: array
+      })
+
       default: 
         return state
     }

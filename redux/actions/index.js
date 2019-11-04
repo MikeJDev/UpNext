@@ -4,3 +4,10 @@ export const addTodo = todo => (
     payload: todo
   }
 )
+
+export const removeSpecificTodo = todo => (
+  {
+    type: 'REMOVE_SPECIFIC_TODO',
+    payload: todo
+  }
+)

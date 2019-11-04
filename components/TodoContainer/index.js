@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import DoneList from '../DoneList'
 import TodoList from '../TodoList'
+import {connect} from 'react-redux'
 import {
   SafeAreaView,
   StyleSheet,
@@ -9,18 +10,37 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
+import {
+  removeSpecificTodo
+} from '../../redux/actions/index'
 
 
 class TodoContainer extends Component {
+
+  handleCheckBoxComplete = (id) => {
+    this.props.removeSpecificTodo(id)
+  }
+
   render () {
       return (
         <View>
-          <DoneList></DoneList>
-
-          <TodoList></TodoList>
+          <TodoList
+            handleComplete={this.handleCheckBoxComplete}
+          ></TodoList>
         </View>
       )
   }
 }
 
-export default TodoContainer
+function mapDispatchToProps(dispatch) {
+  return {
+    removeSpecificTodo: id => dispatch(removeSpecificTodo(id)),
+  };
+}
+
+const connectedListContainer = connect(
+  null,
+  mapDispatchToProps
+)(TodoContainer)
+
+export default connectedListContainer

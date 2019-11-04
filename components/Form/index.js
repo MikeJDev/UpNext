@@ -12,7 +12,6 @@ import {connect} from 'react-redux'
 import {
   addTodo,
 } from '../../redux/actions'
-import DoneList from '../DoneList/index'
 
 class Form extends Component {
   constructor(props) {
@@ -28,7 +27,7 @@ class Form extends Component {
     if (this.state.title !== "") {
       this.props.addTodo({ title });
     }
-    this.setState({ title: "" });
+    this.setState({ title: '' });
   }
 
   render () {
@@ -42,6 +41,7 @@ class Form extends Component {
             returnKeyLabel="done"
             onChangeText={(title) => this.setState({title})}
             onSubmitEditing={this.handleSubmit}
+            value={this.state.title}
           ></TextInput>
         </View>
       )
