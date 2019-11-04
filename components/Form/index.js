@@ -17,7 +17,9 @@ import DoneList from '../DoneList/index'
 class Form extends Component {
   constructor(props) {
     super(props);
-    this.state = {text: ''}
+    this.state = {
+      title: ''
+    }
   }
 
   handleSubmit = (event) => {
@@ -38,7 +40,7 @@ class Form extends Component {
             placeholder="Add Tasks"
             returnKeyType="done"
             returnKeyLabel="done"
-            onChangeText={(text) => this.setState({text})}
+            onChangeText={(title) => this.setState({title})}
             onSubmitEditing={this.handleSubmit}
           ></TextInput>
         </View>

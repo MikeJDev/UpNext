@@ -1,5 +1,3 @@
-import {combineReducers} from 'redux'
-
 import {
   ADD_TODO
 } from '../actionTypes/index'
@@ -22,6 +20,4 @@ function rootReducer(state = initialState, action) {
     }
   }
 
-export default combineReducers({
-  TodosReducer: rootReducer,
-})
+  export default rootReducer
