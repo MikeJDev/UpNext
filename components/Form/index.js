@@ -1,17 +1,20 @@
 import React, {Component} from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
-  ScrollView,
   View,
   Text,
-  StatusBar,
   TextInput
 } from 'react-native';
 import {connect} from 'react-redux'
 import {
   addTodo,
 } from '../../redux/actions'
+
+function mapDispatchToProps(dispatch) {
+  return {
+    addTodo: text => dispatch(addTodo(text)),
+  };
+}
 
 class Form extends Component {
   constructor(props) {
@@ -57,15 +60,10 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 40,
-    margin: 5
+    margin: 5,
+    padding: 5
   }
 })
-
-function mapDispatchToProps(dispatch) {
-  return {
-    addTodo: text => dispatch(addTodo(text)),
-  };
-}
 
 const connectedForm = connect(
   null,
