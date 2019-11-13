@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import DoneList from '../DoneList'
 import TodoList from '../TodoList'
 import {connect} from 'react-redux'
 import {
@@ -23,7 +22,7 @@ class TodoContainer extends Component {
 
   render () {
       return (
-        <View>
+        <View style={styles.container}>
           <TodoList
             handleComplete={this.handleCheckBoxComplete}
           ></TodoList>
@@ -31,6 +30,12 @@ class TodoContainer extends Component {
       )
   }
 }
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'rgb(29, 29, 29)',
+    height: '100%'
+  }, 
+})
 
 function mapDispatchToProps(dispatch) {
   return {

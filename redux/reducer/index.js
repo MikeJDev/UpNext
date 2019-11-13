@@ -19,12 +19,13 @@ function rootReducer(state = initialState, action) {
 
       case REMOVE_SPECIFIC_TODO:
       let array = [...state.Todos]
-      // let array2 = [...state.Completed]
-      // array2.push[array[action.payload]]
+      let array2 = [...state.Completed]
+      array2.push(state.Todos[action.payload])
       array.splice(action.payload, 1)
 
       return Object.assign({}, state, {
         ...state,
+        Completed: array2,
         Todos: array
       })
 

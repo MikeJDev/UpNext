@@ -35,11 +35,12 @@ class Form extends Component {
 
   render () {
       return (
-        <View>
+        <View style={styles.container}>
           <Text style={styles.header}>To-Do List</Text>
           <TextInput
             style={styles.input}
             placeholder="Add Tasks"
+            placeholderTextColor="rgb(179, 138, 245)"
             returnKeyType="done"
             returnKeyLabel="done"
             onChangeText={(title) => this.setState({title})}
@@ -52,16 +53,20 @@ class Form extends Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'rgb(29, 29, 29)'
+  },  
   header: {
     textAlign: 'center',
     fontSize: 30,
     fontFamily: 'helvetica',
-    fontWeight: '900'
+    fontWeight: '900',
+    color: 'rgb(179, 138, 245)'
   },
   input: {
     height: 40,
     margin: 5,
-    padding: 5
+    padding: 5,
   }
 })
 

@@ -18,7 +18,6 @@ const TodoList = ({
     dataArray.push({id: x, 'title': el.title})
   })
   
-  console.log('dataArray:', dataArray)
   return (
     <View>
       <FlatList

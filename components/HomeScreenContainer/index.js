@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Form from '../Form'
 import ToDoListContainer from '../TodoContainer'
 import {
-  View,
+  View, StyleSheet,
 } from 'react-native';
 
 class HomeScreenContainer extends Component {
@@ -16,5 +16,6 @@ class HomeScreenContainer extends Component {
       )
   }
 }
+
 
 export default HomeScreenContainer
