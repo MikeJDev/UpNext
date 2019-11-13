@@ -5,8 +5,6 @@ import rootReducer from './redux/reducer/index'
 import {
   SafeAreaView,
 } from 'react-native';
-import Form from './components/Form/index'
-import TodoContainer from './components/TodoContainer/index'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import HomeScreenContainer from './components/HomeScreenContainer'
 import HomeNav from './components/HomeNav';
@@ -19,9 +17,8 @@ const App = () => {
     <>
     <Provider store={ store }>
       <SafeAreaView>
-        {/* <HomeScreenContainer></HomeScreenContainer> */}
-        {/* <HomeNav></HomeNav> */}
       </SafeAreaView>
+        <HomeNav></HomeNav>
     </Provider>
     </>
   );

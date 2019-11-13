@@ -23,3 +23,4 @@ const AppTabNavigator = createBottomTabNavigator({
 })
 
 export default createAppContainer(AppTabNavigator)
+// export default HomeNav
