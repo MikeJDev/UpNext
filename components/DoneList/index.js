@@ -24,7 +24,6 @@ const DoneList = ({
           {todo}
           </Text>
         </View>
-          // <Text>Done Column</Text>
       )
 }
 
