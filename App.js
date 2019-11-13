@@ -9,6 +9,8 @@ import Form from './components/Form/index'
 import TodoContainer from './components/TodoContainer/index'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import HomeScreenContainer from './components/HomeScreenContainer'
+import HomeNav from './components/HomeNav';
+
 
 const store = createStore(rootReducer, composeWithDevTools())
 
@@ -17,7 +19,8 @@ const App = () => {
     <>
     <Provider store={ store }>
       <SafeAreaView>
-        <HomeScreenContainer></HomeScreenContainer>
+        {/* <HomeScreenContainer></HomeScreenContainer> */}
+        {/* <HomeNav></HomeNav> */}
       </SafeAreaView>
     </Provider>
     </>
