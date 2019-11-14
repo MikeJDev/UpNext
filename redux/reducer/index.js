@@ -1,7 +1,8 @@
 import {
   ADD_TODO,
   REMOVE_SPECIFIC_TODO,
-  REMOVE_SPECIFIC_FROM_COMPLETED
+  REMOVE_SPECIFIC_FROM_COMPLETED,
+  UNDO
 } from '../actionTypes/index'
 
 const initialState = {
@@ -31,13 +32,25 @@ function rootReducer(state = initialState, action) {
       })
 
       case REMOVE_SPECIFIC_FROM_COMPLETED:
-        console.log(action.payload)
         let array3 = [...state.Completed]
         array3.splice(action.payload, 1)
         return Object.assign({}, state, {
           ...state,
           Completed: array3
         })
+
+        case UNDO:
+          console.log(action.payload)
+          let array5 = [...state.Todos]
+          let array4 = [...state.Completed]
+          array5.push(array4[action.payload])
+          array4.splice(action.payload, 1)
+        return Object.assign({}, state, {
+          ...state, 
+          Todos: array5,
+          Completed: array4
+        })
+
 
       default: 
         return state

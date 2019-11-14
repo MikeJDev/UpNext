@@ -18,3 +18,10 @@ export const removeSpecificFromCompleted = todo => (
     payload: todo
   }
 )
+
+export const undo = todo => (
+  {
+    type: 'UNDO',
+    payload: todo
+  }
+)

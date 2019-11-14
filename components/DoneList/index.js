@@ -6,11 +6,13 @@ import { ScrollView } from 'react-native-gesture-handler';
 import Swipeout from 'react-native-swipeout'
 import {
   removeSpecificFromCompleted,
+  undo
 } from '../../redux/actions'
 
 function mapDispatchToProps(dispatch) {
   return {
     removeSpecificFromCompleted: id => dispatch(removeSpecificFromCompleted(id)),
+    undo: id => dispatch(undo(id))
   };
 }
 
@@ -30,6 +32,10 @@ class DoneList extends Component {
     this.props.removeSpecificFromCompleted(id)
   }
 
+  handleUndo = (id) => {
+    this.props.undo(id)
+  }
+
   render () {
     const doneCards = this.props.completedTodo.map((x, i) => {
       const swipeoutBtns = [
@@ -38,6 +44,12 @@ class DoneList extends Component {
           backgroundColor: 'red',
           underlayColor: 'rgb(0, 0, 0)',
           onPress: () => this.handleSwipeRemove(x.id),
+        },
+        {
+          text: 'Undo',
+          backgroundColor: 'orange',
+          underlayColor: 'rgb(0, 0, 0)',
+          onPress: () => this.handleUndo(x.id)
         }
       ]
       return (
