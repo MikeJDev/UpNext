@@ -22,16 +22,13 @@ const TodoList = ({
     return (
       <View key={i}>
       <Swipeout right={swipeoutBtns}
-          autoClose='true'
+          autoClose={true}
           backgroundColor='transparent'>
         <Card>
           <View>
-          {/* <TouchableOpacity
-            onPress={() => handleComplete(x.id)} */}
             <Text>
               {x.title}
             </Text>
-            {/* </TouchableOpacity> */}
           </View>
         </Card>
       </Swipeout>

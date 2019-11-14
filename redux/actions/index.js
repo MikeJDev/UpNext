@@ -11,3 +11,10 @@ export const removeSpecificTodo = todo => (
     payload: todo
   }
 )
+
+export const removeSpecificFromCompleted = todo => (
+  {
+    type: 'REMOVE_SPECIFIC_FROM_COMPLETED',
+    payload: todo
+  }
+)
