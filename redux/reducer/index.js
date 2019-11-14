@@ -6,7 +6,16 @@ import {
 } from '../actionTypes/index'
 
 const initialState = {
-  Todos: [],
+  Todos: [
+    {title: 'Go to the bar'},
+    {title: 'Work 8am'}, 
+    {title: 'Convince Geoff to buy beanbags for IT'},
+    {title: 'Go to gym after work'}, 
+    {title: 'Pick up groceries on the way home'}, 
+    {title: 'Dont forget to do laundry'},
+    {title: 'Feed the dog'},
+    {title: 'Eat donuts'}
+  ],
   Completed: []
 }
 
