@@ -2,47 +2,52 @@ import React from 'react';
 import {connect} from 'react-redux'
 import { StyleSheet, View, Text, FlatList, TouchableOpacity } from 'react-native';
 import { Card } from 'react-native-elements'
+import Swipeout from 'react-native-swipeout';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const TodoList = ({
   todo,
   handleComplete
 }) => {
   const todoCards = todo.map((x, i) => {
+    const swipeoutBtns = [
+      {
+        text: 'Complete',
+        backgroundColor: 'green',
+        underlayColor: 'rgb(0, 0, 0)',
+        onPress: () => handleComplete(x.id)
+      }
+    ]
     x.id = i
-    console.log(x)
     return (
-      <Card key={i}>
-        <View>
-        <TouchableOpacity
-          onPress={() => handleComplete(x.id)}
-          ><Text>
-            {x.title}
-          </Text>
-          </TouchableOpacity>
-        </View>
-      </Card>
+      <View key={i}>
+      <Swipeout right={swipeoutBtns}
+          autoClose='true'
+          backgroundColor='transparent'>
+        <Card>
+          <View>
+          {/* <TouchableOpacity
+            onPress={() => handleComplete(x.id)} */}
+            <Text>
+              {x.title}
+            </Text>
+            {/* </TouchableOpacity> */}
+          </View>
+        </Card>
+      </Swipeout>
+      </View>
     )
   })
   
   return (
-    <View>
-      {todoCards}
-    </View>
+    <ScrollView>
+      <View>
+        {todoCards}
+      </View>
+    </ScrollView>
   )
 }
 
-const styles = StyleSheet.create({
-  listItem: {
-    padding: 7,
-    borderColor: 'black',
-    borderWidth: .5,
-    marginLeft: 5,
-    marginRight: 5,
-    marginBottom: 3,
-    marginTop: 2,
-    borderRadius: 4
-  }
-})
 const mapStateToProps = state => ({
   todo: state.Todos
 })

@@ -12,11 +12,10 @@ import HomeNav from './components/HomeNav';
 const store = createStore(rootReducer, composeWithDevTools())
 
 const App = () => {
+  console.disableYellowBox = true;
   return (
     <>
     <Provider store={ store }>
-      {/* <SafeAreaView>
-      </SafeAreaView> */}
         <HomeNav></HomeNav>
     </Provider>
     </>

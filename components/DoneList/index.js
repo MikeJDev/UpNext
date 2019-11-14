@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import { Card } from 'react-native-elements'
 import { ScrollView } from 'react-native-gesture-handler';
+import Swipeout from 'react-native-swipeout';
 
 class DoneList extends Component {
   static navigationOptions = {
@@ -10,15 +11,27 @@ class DoneList extends Component {
   };
 
   render () {
+    const swipeoutBtns = [
+      {
+        text: 'Delete',
+        backgroundColor: 'red',
+        underlayColor: 'rgb(0, 0, 0)',
+      }
+    ]
+
     const doneCards = this.props.completedTodo.map((x, i) => {
       return (
-        <Card key={i}>
-          <View>
-            <Text>
-              {x.title}
-            </Text>
-          </View>
-        </Card>
+        <Swipeout right={swipeoutBtns}
+          autoClose='true'
+          backgroundColor='transparent'>
+          <Card key={i}>
+              <View>
+                <Text>
+                  {x.title}
+                </Text>
+              </View>
+          </Card>
+        </Swipeout>
       )
     })
 
