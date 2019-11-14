@@ -15,10 +15,9 @@ const TodoList = ({
         text: 'Complete',
         backgroundColor: 'green',
         underlayColor: 'rgb(0, 0, 0)',
-        onPress: () => handleComplete(x.id)
+        onPress: () => handleComplete(i)
       }
     ]
-    x.id = i
     return (
       <View key={i} style={styles.view}>
       <Swipeout right={swipeoutBtns}

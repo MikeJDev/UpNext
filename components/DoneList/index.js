@@ -38,18 +38,19 @@ class DoneList extends Component {
 
   render () {
     const doneCards = this.props.completedTodo.map((x, i) => {
+      console.log(i)
       const swipeoutBtns = [
         {
           text: 'Delete',
           backgroundColor: 'red',
           underlayColor: 'rgb(0, 0, 0)',
-          onPress: () => this.handleSwipeRemove(x.id),
+          onPress: () => this.handleSwipeRemove(i),
         },
         {
           text: 'Undo',
           backgroundColor: 'orange',
           underlayColor: 'rgb(0, 0, 0)',
-          onPress: () => this.handleUndo(x.id)
+          onPress: () => this.handleUndo(i)
         }
       ]
       return (
