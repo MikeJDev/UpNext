@@ -1,34 +1,32 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {
-  StyleSheet,
-  View,
-  Text,
-  FlatList,
-  TouchableOpacity,
-} from 'react-native';
-
+import { StyleSheet, View, Text, FlatList, TouchableOpacity } from 'react-native';
+import { Card } from 'react-native-elements'
 
 const TodoList = ({
   todo,
   handleComplete
 }) => {
-  const dataArray = []
-  const rawTodos = todo.map((el, x) => {
-    dataArray.push({id: x, 'title': el.title})
+  const todoCards = todo.map((x, i) => {
+    x.id = i
+    console.log(x)
+    return (
+      <Card key={i}>
+        <View>
+        <TouchableOpacity
+          onPress={() => handleComplete(x.id)}
+          ><Text>
+            {x.title}
+          </Text>
+          </TouchableOpacity>
+        </View>
+      </Card>
+    )
   })
   
   return (
     <View>
-      <FlatList
-        data={dataArray}
-        renderItem={({item}) => 
-        <TouchableOpacity
-          onPress={() => handleComplete(item.id)}
-          ><Text style={styles.listItem} >{item.title}</Text> 
-        </TouchableOpacity>}
-        keyExtractor={item => item.id.toString()}
-      ></FlatList>
+      {todoCards}
     </View>
   )
 }

@@ -1,17 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import { View, Text, StyleSheet, FlatList } from 'react-native';
-import { Card, ListItem, Button, Icon } from 'react-native-elements'
+import { Card } from 'react-native-elements'
 import { ScrollView } from 'react-native-gesture-handler';
 
 
 const DoneList = ({
   completedTodo
 }) => {
-  const todoCards = completedTodo.map((x, i) => {
+  const doneCards = completedTodo.map((x, i) => {
     return (
-      <Card>
-        <View key={i}>
+      <Card key={i}>
+        <View>
           <Text>
             {x.title}
           </Text>
@@ -19,25 +19,13 @@ const DoneList = ({
       </Card>
     )
   })
-  console.log('todoCards:', todoCards)
       return (
         <ScrollView>
 
         <View>
           <Text style={styles.header}>Completed</Text>
           <View>
-            {todoCards}
-            {/* <Card style={styles.card}>
-                {
-                  completedTodo.map((todo, i) => {
-                    return (
-                      <View key={i} style={styles.item}>
-                      <Text >{todo.title}</Text>
-                      </View>
-                      );
-                    })
-                  }
-                </Card> */}
+            {doneCards}
           </View>
         </View>
       </ScrollView>
@@ -58,16 +46,6 @@ const styles = StyleSheet.create({
     fontFamily: 'helvetica',
     fontWeight: '900'
   },
-  item: {
-    padding: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#d9d9d9',
-    width: '100%'
-  },
-  card: {
-    height: '100%',
-    backgroundColor: 'black'
-  }
 })
 
 

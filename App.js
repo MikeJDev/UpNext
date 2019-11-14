@@ -6,7 +6,6 @@ import {
   SafeAreaView, StyleSheet,
 } from 'react-native';
 import { composeWithDevTools } from 'redux-devtools-extension'
-import HomeScreenContainer from './components/HomeScreenContainer'
 import HomeNav from './components/HomeNav';
 
 
@@ -16,7 +15,7 @@ const App = () => {
   return (
     <>
     <Provider store={ store }>
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView>
       </SafeAreaView>
         <HomeNav></HomeNav>
     </Provider>
@@ -25,9 +24,7 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'rgb(29, 29, 29)'
-  }, 
+
 })
 
 export default App;

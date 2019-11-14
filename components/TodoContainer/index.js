@@ -22,7 +22,7 @@ class TodoContainer extends Component {
 
   render () {
       return (
-        <View style={styles.container}>
+        <View>
           <TodoList
             handleComplete={this.handleCheckBoxComplete}
           ></TodoList>
@@ -31,10 +31,7 @@ class TodoContainer extends Component {
   }
 }
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'rgb(29, 29, 29)',
-    height: '100%'
-  }, 
+
 })
 
 function mapDispatchToProps(dispatch) {
