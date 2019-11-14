@@ -15,8 +15,8 @@ const App = () => {
   return (
     <>
     <Provider store={ store }>
-      <SafeAreaView>
-      </SafeAreaView>
+      {/* <SafeAreaView>
+      </SafeAreaView> */}
         <HomeNav></HomeNav>
     </Provider>
     </>

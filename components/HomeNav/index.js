@@ -1,30 +1,44 @@
 import React, {Component} from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
+import {createStackNavigator} from 'react-navigation-stack'
 import HomeScreenContainer from '../HomeScreenContainer';
 import DoneList from '../DoneList';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 Ionicons.loadFont()
 class HomeNav extends Component {
-
+  
   render () {
-      return (
-        <AppTabNavigator/>
+    return (
+      <BottomNavigator/>
       )
+    }
   }
-}
 
-const AppTabNavigator = createBottomTabNavigator({
-  Home: {
-    screen: HomeScreenContainer
-  },
+  const homeStack = createStackNavigator({ 
+    Home: {
+        screen: HomeScreenContainer  
+    }
+  });
+
+const completedStack = createStackNavigator({ 
   Completed: {
-    screen: DoneList
+      screen: DoneList  
   }
-},
+  });
+  
+  const BottomNavigator = createBottomTabNavigator({
+    Home: {
+        screen: homeStack
+  },
+    Completed: {
+        screen: completedStack
+    }
+  },
 {
   defaultNavigationOptions: ({ navigation }) => ({
+    
     tabBarIcon: ({ focused, horizontal, tintColor }) => {
       const { routeName } = navigation.state 
       let IconComponent = Ionicons
@@ -48,4 +62,4 @@ const AppTabNavigator = createBottomTabNavigator({
 
 
 
-export default createAppContainer(AppTabNavigator)
+export default createAppContainer(BottomNavigator)

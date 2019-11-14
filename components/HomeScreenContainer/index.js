@@ -6,8 +6,11 @@ import {
 } from 'react-native';
 
 class HomeScreenContainer extends Component {
-
+  static navigationOptions = {
+    title: 'Todo List',
+  };
   render () {
+    
       return (
         <View>
           <Form></Form>

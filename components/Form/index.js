@@ -36,7 +36,6 @@ class Form extends Component {
   render () {
       return (
         <View>
-          <Text style={styles.header}>To-Do List</Text>
           <TextInput 
             style={styles.input}
             placeholder="Add Tasks"
