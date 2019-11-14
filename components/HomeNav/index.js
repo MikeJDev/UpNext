@@ -45,7 +45,6 @@ const completedStack = createStackNavigator({
       let iconName
       if (routeName === 'Home') {
         iconName = `md-home`
-        // IconComponent = HomeIconWithBadge
       } else if (routeName === 'Completed') {
         iconName = 'md-checkmark'
       }
