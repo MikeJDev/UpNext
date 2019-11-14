@@ -30,11 +30,11 @@ class Form extends Component {
 
   render () {
       return (
-        <View>
+        <View style={styles.container}>
           <TextInput 
             style={styles.input}
-            placeholder="Add Tasks"
-            placeholderTextColor="rgb(179, 138, 245)"
+            placeholder="Click here to add tasks"
+            placeholderTextColor="#B1F971"
             returnKeyType="done"
             returnKeyLabel="done"
             onChangeText={(title) => this.setState({title})}
@@ -48,7 +48,7 @@ class Form extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'rgb(29, 29, 29)'
+    backgroundColor: '#595959',
   },  
   header: {
     textAlign: 'center',

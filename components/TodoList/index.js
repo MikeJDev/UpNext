@@ -20,13 +20,13 @@ const TodoList = ({
     ]
     x.id = i
     return (
-      <View key={i}>
+      <View key={i} style={styles.view}>
       <Swipeout right={swipeoutBtns}
           autoClose={true}
           backgroundColor='transparent'>
-        <Card>
+        <Card containerStyle={styles.card}>
           <View>
-            <Text>
+            <Text style={styles.text}>
               {x.title}
             </Text>
           </View>
@@ -44,6 +44,24 @@ const TodoList = ({
     </ScrollView>
   )
 }
+
+const styles = StyleSheet.create({
+  card: {
+    borderRadius: 10,
+    backgroundColor: '#e6e6e6',
+    marginLeft: 0,
+    marginRight: 0,
+    marginTop: 0,
+    marginBottom: 0
+  },
+  text: {
+    fontSize: 25,
+    fontWeight: '600'
+  },
+  view: {
+    margin: 5
+  }
+})
 
 const mapStateToProps = state => ({
   todo: state.Todos

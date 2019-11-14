@@ -17,6 +17,13 @@ function mapDispatchToProps(dispatch) {
 class DoneList extends Component {
   static navigationOptions = {
     title: 'Completed',
+    headerStyle: {
+      backgroundColor: '#4d4d4d'
+    },
+    headerTitleStyle: {
+      color: '#B1F971',
+      fontSize: 25
+    }
   };
 
   handleSwipeRemove = (id) => {
@@ -30,33 +37,59 @@ class DoneList extends Component {
           text: 'Delete',
           backgroundColor: 'red',
           underlayColor: 'rgb(0, 0, 0)',
-          onPress: () => this.handleSwipeRemove(x.id)
+          onPress: () => this.handleSwipeRemove(x.id),
         }
       ]
       return (
-        <Swipeout right={swipeoutBtns}
-          autoClose={true}
-          backgroundColor='transparent'>
-          <Card key={i}>
-              <View>
-                <Text>
-                  {x.title}
-                </Text>
-              </View>
-          </Card>
-        </Swipeout>
+        <View style={styles.cards}>
+          <Swipeout right={swipeoutBtns}
+            autoClose={true}
+            backgroundColor='transparent'>
+            <Card key={i} containerStyle={styles.card}>
+                <View>
+                  <Text style={styles.text}>
+                    {x.title}
+                  </Text>
+                </View>
+            </Card>
+          </Swipeout>
+        </View>
       )
     })
 
       return (
-        <ScrollView>
-          <View>
+          <View style={styles.container}>
+        <ScrollView style={styles.view}>
             {doneCards}
-          </View>
       </ScrollView>
+          </View>
       )
     }
   }
+  const styles = StyleSheet.create({
+    container: {
+      backgroundColor: '#595959',
+      height: '100%',
+    },
+    card: {
+      borderRadius: 10,
+      backgroundColor: '#e6e6e6',
+      marginLeft: 0,
+      marginRight: 0,
+      marginTop: 0,
+      marginBottom: 0
+    },
+    text: {
+      fontSize: 25,
+      fontWeight: '600'
+    },
+    view: {
+      marginTop: 10,
+    },
+    cards: {
+      margin: 5
+    }
+  })
 
 
 

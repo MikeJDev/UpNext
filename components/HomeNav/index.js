@@ -54,8 +54,12 @@ const completedStack = createStackNavigator({
     }
   }),
   tabBarOptions: {
-    activeTintColor: 'tomato',
-    inactiveTintColor: 'gray',
+    activeTintColor: '#B1F971',
+    inactiveTintColor: '#ffffff',
+    style: {
+      backgroundColor: '#4d4d4d',
+      paddingTop: 10,
+    }
   },
 })
 
