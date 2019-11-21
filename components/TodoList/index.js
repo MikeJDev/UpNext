@@ -1,51 +1,67 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {
-  StyleSheet,
-  View,
-  Text,
-  FlatList,
-  TouchableOpacity,
-} from 'react-native';
-
+import { StyleSheet, View, Text, FlatList, TouchableOpacity } from 'react-native';
+import { Card } from 'react-native-elements'
+import Swipeout from 'react-native-swipeout';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const TodoList = ({
   todo,
   handleComplete
 }) => {
-  const dataArray = []
-  const rawTodos = todo.map((el, x) => {
-    dataArray.push({id: x, 'title': el.title})
+  const todoCards = todo.map((x, i) => {
+    const swipeoutBtns = [
+      {
+        text: 'Complete',
+        backgroundColor: 'green',
+        underlayColor: 'rgb(0, 0, 0)',
+        onPress: () => handleComplete(i)
+      }
+    ]
+    return (
+      <View key={i} style={styles.view}>
+      <Swipeout right={swipeoutBtns}
+          autoClose={true}
+          backgroundColor='transparent'>
+        <Card containerStyle={styles.card}>
+          <View>
+            <Text style={styles.text}>
+              {x.title}
+            </Text>
+          </View>
+        </Card>
+      </Swipeout>
+      </View>
+    )
   })
   
-  console.log('dataArray:', dataArray)
   return (
-    <View>
-      <FlatList
-        data={dataArray}
-        renderItem={({item}) => 
-        <TouchableOpacity
-          onPress={() => handleComplete(item.id)}
-          ><Text style={styles.listItem} >{item.title}</Text> 
-        </TouchableOpacity>}
-        keyExtractor={item => item.id.toString()}
-      ></FlatList>
-    </View>
+    <ScrollView>
+      <View>
+        {todoCards}
+      </View>
+    </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
-  listItem: {
-    padding: 7,
-    borderColor: 'black',
-    borderWidth: .5,
-    marginLeft: 5,
-    marginRight: 5,
-    marginBottom: 3,
-    marginTop: 2,
-    borderRadius: 4
+  card: {
+    borderRadius: 10,
+    backgroundColor: '#e6e6e6',
+    marginLeft: 0,
+    marginRight: 0,
+    marginTop: 0,
+    marginBottom: 0
+  },
+  text: {
+    fontSize: 25,
+    fontWeight: '600'
+  },
+  view: {
+    margin: 5
   }
 })
+
 const mapStateToProps = state => ({
   todo: state.Todos
 })

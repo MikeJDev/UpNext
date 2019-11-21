@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import DoneList from '../DoneList'
 import TodoList from '../TodoList'
 import {connect} from 'react-redux'
 import {
@@ -31,6 +30,9 @@ class TodoContainer extends Component {
       )
   }
 }
+const styles = StyleSheet.create({
+
+})
 
 function mapDispatchToProps(dispatch) {
   return {

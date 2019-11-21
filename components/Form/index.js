@@ -1,10 +1,5 @@
 import React, {Component} from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  TextInput
-} from 'react-native';
+import { StyleSheet, View, TextInput} from 'react-native';
 import {connect} from 'react-redux'
 import {
   addTodo,
@@ -35,11 +30,11 @@ class Form extends Component {
 
   render () {
       return (
-        <View>
-          <Text style={styles.header}>To-Do List</Text>
-          <TextInput
+        <View style={styles.container}>
+          <TextInput 
             style={styles.input}
-            placeholder="Add Tasks"
+            placeholder="Click here to add tasks"
+            placeholderTextColor="#B1F971"
             returnKeyType="done"
             returnKeyLabel="done"
             onChangeText={(title) => this.setState({title})}
@@ -52,16 +47,20 @@ class Form extends Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#595959',
+  },  
   header: {
     textAlign: 'center',
     fontSize: 30,
     fontFamily: 'helvetica',
-    fontWeight: '900'
+    fontWeight: '900',
+    color: 'rgb(179, 138, 245)'
   },
   input: {
     height: 40,
     margin: 5,
-    padding: 5
+    padding: 5,
   }
 })
 
